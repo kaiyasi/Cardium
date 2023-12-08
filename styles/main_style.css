@@ -1,0 +1,104 @@
+/*字體載入*/
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shizuru&display=swap');
+body {
+    margin: 0;
+    height: 100vh;
+}
+.background {
+    position: relative;
+    height: 100%;
+    background-image: url(/background/index.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.background ::before{
+    content: "";
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    inset: 0;
+    position: absolute;
+    z-index: -1;  
+}
+.card {
+  position: relative;
+  background-color: rgba(33, 33, 33, 0.822);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  box-shadow: 0 10px 20px rgb(0, 0, 0);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content .heading {
+  font-weight: 700;
+  font-size: 32px;
+  font-family: 'Shizuru display',swap;
+}
+
+.content .para {
+  line-height: 1.5;
+  font-family: 'Dancing Script', cursive;
+}
+
+.content .btn {
+  color: #1f0909;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.863);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover::before {
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: none;
+}
+
+.card:hover .btn {
+  color: #212121;
+  background: #e8e8e8;
+}
+
+.content .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content .btn:active {
+  box-shadow: none;
+}

@@ -81,10 +81,9 @@ body {
     pointer-events: fill;
   }
 
-  .card:hover {
+.card:hover {
     filter: drop-shadow(20px 7px 5px #575252);
   }
-
 
 
 /*頭像 css*/
