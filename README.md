@@ -1,66 +1,90 @@
-# 源计划方舟 (Ark)
+# Cardium - 個人資料卡生成與展示平台
 
-## 店长的碎碎念
+> **由 Serelix Studio 開發的多平台個人檔案整合工具，讓你的數位身份更有型。**
 
-源计划方舟 (Ark) 是基于 [Hexo 框架](https://hexo.io)和 [Butterfly 主题](https://butterfly.js.org)进行二次开发的博客样式，它严格来说不算一个新主题，而是我灵光一现，把长久以来积累的灵感付诸实际的产物，本身也和butterfly_v4.3.0版本高度耦合，所以代码在我看来非常的丑陋，技（shi）术（shan）负（dai）债（ma）了属于是。希望各位不要介意。
-基于以上原因，我不愿意把它按照新主题包进行发布，而是作为一个魔改整合包的形式提供。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![Docker](https://img.shields.io/badge/docker-ready-%230db7ed.svg?style=flat\&logo=docker\&logoColor=white)](https://www.docker.com/)
+[![Version](https://img.shields.io/badge/version-0.1--alpha-blue.svg)]()
 
+---
 
+## 💡 專案概念 | Project Overview
 
-## 样式特色
+**Cardium** 是一款致力於打造「數位名片新形態」的應用。
+在這個資訊過載的時代，每個人都有多個平台帳號、專案連結與作品展示頁，而 Cardium 讓你能在同一張互動式卡片中呈現個人風格與專業形象。
 
-1. **科幻风格的异形边框设计**: 整个主题采用了大量独特的异形边框元素,营造出科幻未来的视觉风格,让您的博客与众不同。驾驶舱风格菜单、闸刀式侧栏、科幻友链卡片，给您别样的体验。
-2. **丰富的第三方插件支持**: 在保留 Butterfly 主题核心功能的基础上,Ark 主题还集成了更多实用的第三方插件,基本涵盖了主流的博客功能需求。
-3. **活跃的社区支持**: Ark 主题拥有一个活跃的 QQ 交流群,随时都能找到热情的开发者和用户提供技术支持和交流。
-4. **功能丰富且易于定制**: 除了保留 Butterfly 主题的核心功能,Ark 主题还新增了许多实用的功能模块,并提供了友好的配置系统,让用户可以轻松定制个性化的博客样式和标签。（~~这句是GPT说的，我可不保证我还有耐心继续开发它~~）
-5. **优化的性能和稳定性（？）**: 我个人是觉得用起来挺丝滑的。可是别人老说卡。
+**你可以：**
 
-## 开始使用
+* ✨ 建立屬於自己的個人檔案卡片（支援多語與主題自訂）
+* 🌐 整合社群帳號、GitHub、Discord、Instagram、ForumKit 個人頁等
+* 🔗 一鍵生成公開連結（cardium.serelix.xyz/@username）
+* 🪄 使用 API 或嵌入代碼將卡片整合到網站、部落格、Discord Bot
+* 📊 內建統計與互動資料分析（瀏覽次數、連結點擊來源等）
 
-1. 克隆主题仓库到本地:
+Cardium 不只是展示，更是「你的數位身份中樞」。
 
-   ```bash
-   git clone https://github.com/akilarlxh/hexo-theme-ark-demo.git
-   ```
+---
 
-2. 进入项目目录并安装依赖:
+## 🧩 系統架構 | System Design (預計規劃)
 
-   ```bash
-   cd hexo-theme-ark-demo
-   npm install
-   ```
+```
+Cardium/
+├── 📁 core/              # 主應用程式與 API
+│   ├── auth/             # 使用者登入與驗證模組
+│   ├── profile/          # 個人卡片生成邏輯
+│   └── analytics/        # 瀏覽與互動統計
+├── 🌐 web/               # 前端展示平台 (Next.js + Tailwind)
+├── 🧠 docs/              # 開發文檔（即將推出）
+├── 🐳 docker/            # Docker 環境設定
+└── ⚙️ tests/             # 自動化測試模組
+```
 
-3. 在 Hexo 站点配置文件 `_config.yml` 中设置主题（其实已经设置好了）:
+* 後端：FastAPI + PostgreSQL
+* 前端：Next.js + Tailwind + ShadCN UI
+* 容器：Docker + Nginx（統一使用內部 port 80）
+* 認證：JWT-based Auth（支援 Serelix SSO 整合）
+* 通訊：Socket.IO (即時卡片互動事件)
 
-   ```yaml
-   theme: ark
-   ```
+---
 
-4. 启动 Hexo 服务器进行预览:
+## 🧭 使用情境 | Use Cases
 
-   ```bash
-   hexo server
-   ```
+| 使用情境              | 功能展示                        |
+| ----------------- | --------------------------- |
+| 🧑‍💻 學生/開發者個人頁   | 展示專案連結、技術堆疊與社群帳號            |
+| 🎨 設計師名片          | 加入 Behance、IG、作品集、配色主題      |
+| 💬 校園社群           | 結合 ForumKit 讓使用者能點擊名片查看發文紀錄 |
+| 🤖 Discord Bot 整合 | 使用 `/card @user` 直接顯示使用者卡片  |
 
-5. 根据需求修改主题配置文件 `_config.ark.yml`，配置项基本上都还是 [Butterfly 主题](https://butterfly.js.org)的样子，参考它的文档就差不多了。
+---
 
+## 📅 專案進度 | Development Status
 
-## 贡献与反馈
+| 階段                                 | 說明         |
+| ---------------------------------- | ---------- |
+| ✅ 概念與資料架構定稿                        | 完成         |
+| 🔄 前端介面開發中                         | 進行中        |
+| 🔜 API 整合 (ForumKit / Serelix SSO) | 預計 2025 Q4 |
+| ⏳ 公開測試版                            | 2026 Q1    |
 
-欢迎各位用户参与到 Ark 主题的开发与完善中来。如果您在使用过程中遇到任何问题或有好的建议,欢迎通过以下方式反馈:
+---
 
-- 在 [GitHub Issues](https://github.com/akilarlxh/hexo-theme-ark-demo/issues) 提交问题反馈或功能建议
-- 加入 [Ark 主题讨论群-Akilarの糖果屋](https://qm.qq.com/q/bV3g8g0tzO)与开发者交流
-- 通过 [Pull Request](https://github.com/akilarlxh/hexo-theme-ark-demo/pulls) 贡献代码和文档
+## 📖 文件與支援 | Documentation & Support
 
+* 開發文件（即將推出）
+* [ForumKit 官方支援群](https://discord.gg/serelix)
+* Email：[cardium.serelix@gmail.com](mailto:cardium.serelix@gmail.com)
+* IG：[@serelix.studio](https://www.instagram.com/serelix.studio)
 
+如欲參與開發、測試或設計主題模板，請透過上述管道聯繫我們。
 
-## 开源许可及二次开发说明
+---
 
-1. 本项目允许各位开发者进行二次开发，你们喜欢的话尽管拿去改就是了，但最好能先联系下我，我也想看看会被改成什么样子。
-2. 如果要以此项目为基础进行主题发布，必须在发布主题的README、文档等醒目位置中标明是基于Butterfly主题框架和Akilar的源计划方舟魔改包进行二次创作。
-3. **禁止对本样式进行恶意丑化**，我最讨厌涡轮增压器那种魔鬼配色和地狱切割了。
+## 💬 結語 | Final Note
 
-## 总结
+Cardium 是一張卡片，但更像是一種身份的延伸。
+它不只是展示資料，而是記錄「你在數位世界留下的足跡」。
+我們相信，每個人都該有屬於自己的數位名片。
 
-看起来应该像那么回事了吧，这个文档。
+> Cardium — Your Identity, Simplified.
